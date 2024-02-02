@@ -35,6 +35,8 @@ jobs:
           npm install
 
       - name: Build Next.js App
+        run: |
+          npm run build
         env:
           NEXT_PUBLIC_API_KEY: ${{ secrets.WEB_API_KEY }}
           NEXT_PUBLIC_AUTH_DOMAIN: ${{ secrets.WEB_AUTH_DOMAIN }}
@@ -43,8 +45,6 @@ jobs:
           NEXT_PUBLIC_MESSAGING_SENDER_ID: ${{ secrets.WEB_MESSAGING_SENDER_ID }}
           NEXT_PUBLIC_APP_ID: ${{ secrets.WEB_APP_ID }}
           NEXT_PUBLIC_MEASUREMENT_ID: ${{ secrets.WEB_MEASUREMENT_ID }}
-        run: |
-          npm run build
 
       - name: Deploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
