@@ -46,9 +46,9 @@ jobs:
           NEXT_PUBLIC_APP_ID: ${{ secrets.WEB_APP_ID }}
           NEXT_PUBLIC_MEASUREMENT_ID: ${{ secrets.WEB_MEASUREMENT_ID }}
 
-      - name: Deploy
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: "${{ secrets.WEB_PROJECT_ID }}"
+#      - name: Deploy
+#      - uses: FirebaseExtended/action-hosting-deploy@v0
+#        with:
+#          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+#          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+#          projectId: "${{ secrets.WEB_PROJECT_ID }}"
