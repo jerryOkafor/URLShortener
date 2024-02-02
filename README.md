@@ -8,6 +8,7 @@ incremented each time a new URL is shortened. The counter is then converted to a
 URL. The base 62 number is used to ensure that the shortened URL is as short as possible.
 
 ## Usage
+[URL Shortner](https://urls-4b.web.app/)
 
 ### Shorten a URL
 
