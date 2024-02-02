@@ -46,6 +46,41 @@ curl -I http://localhost:5000/1
 
 ### Todo
 
+#### Milestone`0` - Setup
+
+- [x] Create a new repository on GitHub
+- [x] Add Web Framework to the repository
+- [x] Add API Framework to the repository
+- [x] Add GitHub actions to the repository (CI/CD)
+- [ ] Deploy Web app to Firebase or Varcel
+- [ ] Deploy API to Heroku/Google App engine
+
+#### Milestone`1`
+
+- [ ] Decide what to build
+- [ ] Create profile on GitHub
+- [ ] Create a new repository on GitHub
+- [ ] Add a README.md file
+- [ ] Share your project with the class
+
+#### Milestone`2`
+
+- [ ] Document the specifics of the project, framework, and libraries
+- [ ] Include a section on how to run your application
+- [ ] Share your project on the group Slack channel
+
+#### Milestone`3`
+
+- [ ] Add a project roadmap to the README.md file. Simple list of features that you wish to develop
+- [ ] Indicate which features are in progress and which features are completed
+- [ ] Review and update project to ensure that `How to run the application` section is up-to-date
+- [ ] Share your project on the group Slack channel
+
+#### Milestone`4`
+
+- [ ] Update your readme file as needed. Ensure roadmap and other documentation are up-to-date
+- [ ] Share your project on the group Slack channel and present a short summary of what you wish to present.
+
 ### CMDS
 
 Generate a new requirements.txt file
