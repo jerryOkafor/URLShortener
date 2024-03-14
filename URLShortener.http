@@ -1,0 +1,17 @@
+GET http://localhost:8000/api/v1/url/1L9zO9O
+Accept: application/json
+
+###
+
+# Test short link generator
+POST http://localhost:8000/api/v1/url
+Content-Type: application/json
+
+{
+  "long_url": "https://medium.com/@aarav.gupta9/simple-url-shortener-using-python-d433c2464062"
+}
+
+###
+
+
+

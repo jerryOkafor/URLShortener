@@ -10,6 +10,14 @@ URL. The base 62 number is used to ensure that the shortened URL is as short as 
 ## Usage
 [URL Shortner](https://urls-4b.web.app/)
 
+## Run App Locally
+```bash
+manage.py runserver localhost:8000
+```
+
+## Api Doc:
+[Link to API doc](http://localhost:8000/doc/)
+
 ### Shorten a URL
 
 To shorten a URL, send a POST request to the `/shorten` endpoint with the long URL in the request body. The response
@@ -31,6 +39,17 @@ a `Location` header that contains the long URL.
 curl -I http://localhost:5000/1
 
 ``` 
+
+## Shell
+### Add a new app
+```bash
+./manage.py startapp <appname>
+```
+### Roll back migration
+
+```bash
+./manage.py migrate shortener zero 
+```
 
 ## Installation
 
