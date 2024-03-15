@@ -6,14 +6,12 @@ on:
       - main
     paths:
       - "web/**"
-      - "./"
       - ".github/workflows/BuildWeb.yml"
   pull_request:
     branches:
       - main
     paths:
       - "web/**"
-      - "./"
       - ".github/workflows/BuildWeb.yml"
 
 
