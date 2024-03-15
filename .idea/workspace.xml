@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8a78173-325a-41e7-8cde-80dab081b93f" name="Changes" comment="feat : protect endpoints with API key">
+    <list default="true" id="b8a78173-325a-41e7-8cde-80dab081b93f" name="Changes" comment="fix : upgrade python version and move to using pipenv">
       <change beforePath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/URLShortener.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/URLShortener.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shortener/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shortener/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shortener/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +187,7 @@
       <workItem from="1710517296149" duration="353000" />
       <workItem from="1710517957828" duration="1086000" />
       <workItem from="1710520699154" duration="196000" />
-      <workItem from="1710520918605" duration="1256000" />
+      <workItem from="1710520918605" duration="1535000" />
     </task>
     <task id="LOCAL-00001" summary="add web components.">
       <option name="closed" value="true" />
@@ -381,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710511636216</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix : upgrade python version and move to using pipenv">
+      <option name="closed" value="true" />
+      <created>1710522210271</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710522210271</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +394,8 @@
     <MESSAGE value="add shorten and redirect django apps." />
     <MESSAGE value="feat : add create, retrieve and list APIs for short links." />
     <MESSAGE value="feat : protect endpoints with API key" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : protect endpoints with API key" />
+    <MESSAGE value="fix : upgrade python version and move to using pipenv" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix : upgrade python version and move to using pipenv" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/URLShortener$manage.coverage" NAME="manage Coverage Results" MODIFIED="1706745236290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
