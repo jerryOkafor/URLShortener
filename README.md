@@ -23,6 +23,16 @@ manage.py runserver localhost:8000
 
 Read more about how to run the Web UI [Here](/web/README.md)
 
+### Run Migration using the migration command
+
+### Generate local api key using Django shell and the command below:
+
+```
+>>> from rest_framework_api_key.models import APIKey
+>>> api_key, key = APIKey.objects.create_key(name="url_shortener_server_key")
+>>> # Proceed with `api_key` and `key`...
+```
+
 ## Api Doc:
 
 [Link to API doc](http://localhost:8000/doc/)
@@ -77,6 +87,12 @@ More Doc [Here](URLShortener.http)
 ./manage.py migrate shortener zero 
 ```
 
+### Start Django Shell
+
+```bash
+./manage.py shell -i python
+```
+
 ## Installation
 
 ### Dependecies
@@ -93,8 +109,7 @@ More Doc [Here](URLShortener.http)
 - SQLite
 - Django
 - Django Rest Framework
-- Django Rest Framework Simple JWT
-- Django Rest Framework Simple JWT
+- Django REST Framework API Key
 
 ### Run
 

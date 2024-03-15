@@ -1,21 +1,24 @@
-# Retrive Short Lin URL
+# @name:Retrive Short Lin URL
 GET http://localhost:8000/api/v1/url/1L9zO9O
 Accept: application/json
+X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 ###
 
-# Test short link generator
+# @name:Test short link generator
 POST http://localhost:8000/api/v1/url
 Content-Type: application/json
+X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 {
   "long_url": "https://medium.com/@aarav.gupta9/simple-url-shortener-using-python-d433c2464062"
 }
 
 ###
-# List all genrerated urls
+# @name:List all genrerated urls
 GET http://localhost:8000/api/v1/url
 Accept: application/json
+X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 
 

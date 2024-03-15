@@ -1,8 +1,10 @@
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework_api_key.permissions import HasAPIKey
 
 from shortener.models import ShortUrl
 from shortener.serializers.ShortUrlSerializer import ShortUrlSerializer
@@ -31,6 +33,7 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
     },
     tags=['API'])
 @api_view(["POST", "GET"])
+@permission_classes([HasAPIKey | IsAuthenticated])
 def create_short_url(request, version):
     if request.method == "POST":
         long_url = request.data.get('long_url')
@@ -76,6 +79,7 @@ def create_short_url(request, version):
     },
     tags=['API'])
 @api_view(["GET"])
+@permission_classes([HasAPIKey | IsAuthenticated])
 def get_long_url(request, version, short_code):
     shortenedUrl = ShortUrl.objects.filter(short_code=short_code)
     is_shortened = shortenedUrl.exists()
