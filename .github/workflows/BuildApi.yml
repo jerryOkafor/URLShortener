@@ -2,15 +2,15 @@ name: Build Django API
 
 on:
   push:
+    paths-ignore:
+      - 'web/**'
+      - '.github/workflows/BuildWeb.yml'
     branches:
       - main
-    paths-ignore:
-      - "web/**"
-      - ".github/workflows/BuildWeb.yml"
   pull_request:
     paths-ignore:
-      - "web/**"
-      - ".github/workflows/BuildWeb.yml"
+      - 'web/**'
+      - '.github/workflows/BuildWeb.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

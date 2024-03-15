@@ -2,12 +2,12 @@ name: Build Web
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "web/**"
       - ".github/workflows/BuildWeb.yml"
       - "!.github/workflows/BuildApi.yml"
+    branches:
+      - main
   pull_request:
     paths:
       - "web/**"
