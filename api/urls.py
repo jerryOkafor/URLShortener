@@ -37,6 +37,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('doc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    re_path(r'api/(?P<version>[v1|v2]+)/', include('shortener.urls')),
-    re_path(r'api/(?P<version>[v1|v2]+)/', include('redirect.urls'))
+    re_path(r'api/(?P<version>[v1|v2]+)/', include('shortener.urls'), name='url')
 ]

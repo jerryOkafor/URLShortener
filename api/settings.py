@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ["*"]
 
 load_dotenv()
 
+APPEND_SLASH = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +47,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # Local apps
-    'shortener.apps.ShortenerConfig',
-    'redirect.apps.RedirectConfig',
+    'shortener.apps.ShortenerConfig'
 ]
 
 MIDDLEWARE = [

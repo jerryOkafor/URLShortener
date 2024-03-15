@@ -10,11 +10,11 @@ class URLServiceBase62:
         self.base_url = WEB_BASE_URL
 
     def long_to_short(self, url):
-        shorturl = self.base_10_to_base_62(self.COUNTER)
+        short_code = self.base_10_to_base_62(self.COUNTER)
         self.ltos[url] = self.COUNTER
         self.stol[self.COUNTER] = url
         self.COUNTER += 1
-        return self.base_url + shorturl
+        return self.base_url + short_code, short_code
 
     def short_to_long(self, url):
         short_code = url[len(self.base_url):]

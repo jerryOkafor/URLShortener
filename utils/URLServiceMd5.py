@@ -1,7 +1,12 @@
+import hashlib
+
+from api.settings import WEB_BASE_URL
+
+
 class URLServiceMd5:
     def __init__(self):
         self.url_mapping = {}
-        self.base_url = "https://short.url/"
+        self.base_url = WEB_BASE_URL
 
     def long_to_short(self, original_url: str):
         hash_value = hashlib.md5(original_url.encode()).hexdigest()[:6]

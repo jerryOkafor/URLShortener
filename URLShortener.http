@@ -1,3 +1,4 @@
+# Retrive Short Lin URL
 GET http://localhost:8000/api/v1/url/1L9zO9O
 Accept: application/json
 
@@ -12,6 +13,9 @@ Content-Type: application/json
 }
 
 ###
+# List all genrerated urls
+GET http://localhost:8000/api/v1/url
+Accept: application/json
 
 
 
