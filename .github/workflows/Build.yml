@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  changes:
+    name: Detect files changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      web: ${{ steps.filter.outputs.web }}
+      api: ${{ steps.filter.outputs.api }}
+      docs: ${{ steps.filter.outputs.docs }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            web:
+              - './.github/workflows/BuildWeb.yml'
+              - './web/**'
+            api:
+              - '!./.github/workflows/BuildWeb.yml'
+              - '!./web/**'
+            docs:
+              - './README.md'
+              - './web/README.md'
+      - run:
+          echo steps.filter.outputs
