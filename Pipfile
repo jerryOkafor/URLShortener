@@ -12,6 +12,7 @@ djangorestframework = "~=3.14.0"
 python-dotenv = "*"
 djangorestframework-api-key = "==2.*"
 drf-yasg = "*"
+setuptools = "*"
 
 [dev-packages]
 
