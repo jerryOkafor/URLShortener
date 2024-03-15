@@ -1,4 +1,4 @@
 from django.test import TestCase
-from shortener.models import Post,Tag,Comment
+from shortener.models import ShortUrl
 
 # Create your tests here.
