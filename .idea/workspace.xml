@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b8a78173-325a-41e7-8cde-80dab081b93f" name="Changes" comment="fix : upgrade python version and move to using pipenv">
       <change beforePath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +187,7 @@
       <workItem from="1710517296149" duration="353000" />
       <workItem from="1710517957828" duration="1086000" />
       <workItem from="1710520699154" duration="196000" />
-      <workItem from="1710520918605" duration="1897000" />
+      <workItem from="1710520918605" duration="2179000" />
     </task>
     <task id="LOCAL-00001" summary="add web components.">
       <option name="closed" value="true" />
@@ -396,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710522768144</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix : upgrade python version and move to using pipenv">
+      <option name="closed" value="true" />
+      <created>1710522847752</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710522847752</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
