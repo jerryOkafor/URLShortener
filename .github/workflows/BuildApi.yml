@@ -8,11 +8,17 @@ on:
       - "web/**"
       - ".github/workflows/BuildWeb.yml"
   pull_request:
-    branches:
-      - main
     paths-ignore:
       - "web/**"
       - ".github/workflows/BuildWeb.yml"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "api"
+  cancel-in-progress: true
 
 jobs:
   build:

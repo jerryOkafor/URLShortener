@@ -163,3 +163,4 @@ cython_debug/
 /prod.env
 /.idea/httpRequests/*
 /.idea/copilot/*
+/.idea/workspace.xml
