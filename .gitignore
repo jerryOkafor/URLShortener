@@ -159,3 +159,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /urls-4b-service-account.json
+/cache/
+/prod.env
+/.idea/httpRequests/*
+/.idea/copilot/*
+.idea/workspace.xml

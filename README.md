@@ -8,31 +8,98 @@ incremented each time a new URL is shortened. The counter is then converted to a
 URL. The base 62 number is used to ensure that the shortened URL is as short as possible.
 
 ## Usage
+
 [URL Shortner](https://urls-4b.web.app/)
 
-### Shorten a URL
+## Run App Locally
 
-To shorten a URL, send a POST request to the `/shorten` endpoint with the long URL in the request body. The response
-will contain the shortened URL.
+### Run Django Server
 
 ```bash
+manage.py runserver localhost:8000
+```
 
-curl -X POST -H "Content-Type: application/json" -d '{"url": "https://www.google.com"}' http://localhost:5000/shorten
+### Run Next JS Web UI
+
+Read more about how to run the Web UI [Here](/web/README.md)
+
+### Run Migration using the migration command
+
+### Generate local api key using Django shell and the command below:
+
+```
+>>> from rest_framework_api_key.models import APIKey
+>>> api_key, key = APIKey.objects.create_key(name="url_shortener_server_key")
+>>> # Proceed with `api_key` and `key`...
+```
+
+## Api Doc:
+
+[Link to API doc](http://localhost:8000/doc/)
+
+### Sample API
+
+### Retreive Short Lin URL
+
+```
+GET http://localhost:8000/api/v1/url/1L9zO9O
+Accept: application/json
+```
+
+#### Test short link generator
+
+```
+POST http://localhost:8000/api/v1/url
+Content-Type: application/json
+
+{
+  "long_url": "https://medium.com/@aarav.gupta9/simple-url-shortener-using-python-d433c2464062"
+}
+```
+
+#### List all genrerated urls
+
+```
+GET http://localhost:8000/api/v1/url
+Accept: application/json
 
 ```
 
-### Redirect to a URL
+More Doc [Here](URLShortener.http)
 
-To redirect to a URL, send a GET request to the shortened URL. The server will respond with a 301 status code and
-a `Location` header that contains the long URL.
+## Development
 
-```bash 
+### Add a new app
 
-curl -I http://localhost:5000/1
+```bash
+./manage.py startapp api
+```
 
-``` 
+### Run Migration
+
+```bash
+./manage.py makemigrations shortener && ./manage.py migrate
+```
+
+### Roll back migration
+
+```bash
+./manage.py migrate shortener zero 
+```
+
+### Start Django Shell
+
+```bash
+./manage.py shell -i python
+```
 
 ## Installation
+
+### Dependecies
+
+- Lunchy - `brew install lunchy`, `lunchy ls`. More info [Here](https://github.com/eddiezane/lunchy)
+- MemCached - `brew install memcached`. More
+  info [Here](https://gist.github.com/tomysmile/ba6c0ba4488ea51e6423d492985a7953)
 
 ### Prerequisites
 
@@ -42,8 +109,23 @@ curl -I http://localhost:5000/1
 - SQLite
 - Django
 - Django Rest Framework
-- Django Rest Framework Simple JWT
-- Django Rest Framework Simple JWT
+- Django REST Framework API Key
+
+### Run
+
+- Start Memcached using lunchy:
+
+```bash
+lunchy start memcached
+```
+
+### Clean up
+
+- Stop MemCached using lunchy:
+
+```bash
+lunchy stop memcached
+```
 
 ### Todo
 
@@ -53,16 +135,16 @@ curl -I http://localhost:5000/1
 - [x] Add Web Framework to the repository
 - [x] Add API Framework to the repository
 - [x] Add GitHub actions to the repository (CI/CD)
-- [ ] Deploy Web app to Firebase or Varcel
+- [x] Deploy Web app to Firebase or Varcel
 - [ ] Deploy API to Heroku/Google App engine
 
 #### Milestone`1`
 
-- [ ] Decide what to build
-- [ ] Create profile on GitHub
-- [ ] Create a new repository on GitHub
-- [ ] Add a README.md file
-- [ ] Share your project with the class
+- [x] Decide what to build
+- [x] Create profile on GitHub
+- [x] Create a new repository on GitHub
+- [x] Add a README.md file
+- [x] Share your project with the class
 
 #### Milestone`2`
 
@@ -89,3 +171,18 @@ Generate a new requirements.txt file
 ```bash
 pip freeze > requirements.txt
 ```
+https://ericsysmin.com/2024/02/05/how-to-install-pyenv-on-macos/
+pyenv virtualenv 3.8.0 my-env
+https://ioflood.com/blog/pyenv/#:~:text=First%2C%20install%20pyenv%2Dvirtualenv%20using,pyenv%20virtualenv%203.8.
+
+pyenv virtualenv 3.12.2 urlshortener
+pyenv local urlshortener
+pyenv which python
+pyenv which pip
+pyenv activate urlshortener
+pyenv deactivate
+pyenv uninstall venv
+pip install --upgrade setuptools
+pip install --upgrade distribute 
+
+https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
