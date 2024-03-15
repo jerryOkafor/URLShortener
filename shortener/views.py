@@ -17,7 +17,13 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
     operation_id="Generate short url from a long url",
     method="post",
     operation_description="Generate a short url given a long url",
-    request_body=ShortUrlSerializer,
+    request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        required=['long_url'],
+        properties={
+            'long_url': openapi.Schema(type=openapi.TYPE_STRING),
+        },
+    ),
     responses={
         200: short_url_response,
         404: 'slug not found'
@@ -28,13 +34,13 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
     method="get",
     operation_description="Returns list all generated shor urls",
     responses={
-        200: short_url_response,
+        200: ShortUrlSerializer(many=True),
         404: 'slug not found'
     },
     tags=['API'])
 @api_view(["POST", "GET"])
 @permission_classes([HasAPIKey | IsAuthenticated])
-def create_short_url(request, version):
+def create_short_url_or_get_short_urls(request, version):
     if request.method == "POST":
         long_url = request.data.get('long_url')
 
@@ -80,7 +86,7 @@ def create_short_url(request, version):
     tags=['API'])
 @api_view(["GET"])
 @permission_classes([HasAPIKey | IsAuthenticated])
-def get_long_url(request, version, short_code):
+def get_single_short_url(request, version, short_code):
     shortenedUrl = ShortUrl.objects.filter(short_code=short_code)
     is_shortened = shortenedUrl.exists()
     if is_shortened:

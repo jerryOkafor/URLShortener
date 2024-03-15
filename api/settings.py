@@ -138,3 +138,13 @@ REST_FRAMEWORK = {
 }
 
 API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'X-Api-Key',
+            'in': 'header'
+        }
+    }
+}
