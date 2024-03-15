@@ -72,7 +72,7 @@ More Doc [Here](URLShortener.http)
 ### Add a new app
 
 ```bash
-./manage.py startapp <appname>
+./manage.py startapp api
 ```
 
 ### Run Migration
@@ -171,3 +171,18 @@ Generate a new requirements.txt file
 ```bash
 pip freeze > requirements.txt
 ```
+https://ericsysmin.com/2024/02/05/how-to-install-pyenv-on-macos/
+pyenv virtualenv 3.8.0 my-env
+https://ioflood.com/blog/pyenv/#:~:text=First%2C%20install%20pyenv%2Dvirtualenv%20using,pyenv%20virtualenv%203.8.
+
+pyenv virtualenv 3.12.2 urlshortener
+pyenv local urlshortener
+pyenv which python
+pyenv which pip
+pyenv activate urlshortener
+pyenv deactivate
+pyenv uninstall venv
+pip install --upgrade setuptools
+pip install --upgrade distribute 
+
+https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs

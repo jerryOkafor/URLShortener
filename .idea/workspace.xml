@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b8a78173-325a-41e7-8cde-80dab081b93f" name="Changes" comment="feat : protect endpoints with API key">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/BuildApi.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/URLShortener.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/URLShortener.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shortener/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shortener/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shortener/models.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2bNs1ZC30YqNxNzf2TlsCBKrjQr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.Run Api.executor": "Run",
+    "Django Server.URLShortener.executor": "Run",
+    "Django Server.Unnamed.executor": "Run",
+    "HTTP Request.URLShortener | #1.executor": "Run",
+    "HTTP Request.URLShortener | #2.executor": "Run",
+    "HTTP Request.URLShortener | #3.executor": "Run",
+    "HTTP Request.URLShortener | :List all genrerated urls.executor": "Run",
+    "HTTP Request.URLShortener | :Retrive Short Lin URL.executor": "Run",
+    "HTTP Request.URLShortener | :Test short link generator.executor": "Run",
+    "Python.Run Api.executor": "Run",
+    "Python.manage.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "Shell Script.Run Api.executor": "Run",
+    "Shell Script.Run Web.executor": "Run",
+    "git-widget-placeholder": "feat/ci__cd__for__api",
+    "last_opened_file_path": "/Users/fbistech-d6m/PycharmProjects/URLShortener",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "ts.external.directory.path": "/Users/fbistech-d6m/PycharmProjects/URLShortener/web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/redirect" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/web/src" />
+      <recent name="$PROJECT_DIR$/web/src/app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.URLShortener">
+    <configuration name="URLShortener | :List all genrerated urls" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/URLShortener.http" index="3" requestIdentifier=":List all genrerated urls" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="URLShortener | :Retrive Short Lin URL" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/URLShortener.http" requestIdentifier=":Retrive Short Lin URL" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="URLShortener | :Test short link generator" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/URLShortener.http" index="2" requestIdentifier=":Test short link generator" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="URLShortener" type="Python.DjangoServer" factoryName="Django server">
+      <module name="URLShortener" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="api.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run Web" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="npm run dev" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/web" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django Server.URLShortener" />
+      <item itemvalue="HTTP Request.URLShortener | :List all genrerated urls" />
+      <item itemvalue="HTTP Request.URLShortener | :Retrive Short Lin URL" />
+      <item itemvalue="HTTP Request.URLShortener | :Test short link generator" />
+      <item itemvalue="Shell Script.Run Web" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.URLShortener | :Retrive Short Lin URL" />
+        <item itemvalue="HTTP Request.URLShortener | :List all genrerated urls" />
+        <item itemvalue="HTTP Request.URLShortener | :Test short link generator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8a78173-325a-41e7-8cde-80dab081b93f" name="Changes" comment="" />
+      <created>1706066657561</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706066657561</updated>
+      <workItem from="1706066670285" duration="904000" />
+      <workItem from="1706239748129" duration="246000" />
+      <workItem from="1706741013448" duration="104000" />
+      <workItem from="1706742517440" duration="2119000" />
+      <workItem from="1706745195393" duration="1475000" />
+      <workItem from="1706817836154" duration="20893000" />
+      <workItem from="1706880521204" duration="313000" />
+      <workItem from="1710195787392" duration="1211000" />
+      <workItem from="1710378678072" duration="39446000" />
+      <workItem from="1710513948651" duration="310000" />
+      <workItem from="1710514460307" duration="1194000" />
+      <workItem from="1710516037985" duration="796000" />
+      <workItem from="1710517052262" duration="237000" />
+      <workItem from="1710517296149" duration="353000" />
+      <workItem from="1710517957828" duration="1086000" />
+      <workItem from="1710520699154" duration="196000" />
+      <workItem from="1710520918605" duration="1256000" />
+    </task>
+    <task id="LOCAL-00001" summary="add web components.">
+      <option name="closed" value="true" />
+      <created>1706743528054</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706743528054</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add api components.">
+      <option name="closed" value="true" />
+      <created>1706745663375</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706745663375</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add api components.">
+      <option name="closed" value="true" />
+      <created>1706745745198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706745745198</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add api components.">
+      <option name="closed" value="true" />
+      <created>1706746125938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706746125938</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add api components.">
+      <option name="closed" value="true" />
+      <created>1706746186707</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706746186707</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706832589040</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706832589040</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706833298143</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706833298143</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706833650260</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706833650260</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706833762038</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706833762038</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706834098311</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706834098311</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706834222584</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706834222584</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706834337149</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706834337149</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706834547582</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706834547582</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706834734803</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706834734803</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706835158615</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706835158615</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706837496191</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706837496191</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add next js deployment.">
+      <option name="closed" value="true" />
+      <created>1706838222637</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1706838222637</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add shorten and redirect django apps.">
+      <option name="closed" value="true" />
+      <created>1710391595777</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710391595777</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat : add create, retrieve and list APIs for short links.">
+      <option name="closed" value="true" />
+      <created>1710462629122</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1710462629122</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat : protect endpoints with API key">
+      <option name="closed" value="true" />
+      <created>1710464485938</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1710464485939</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat : protect endpoints with API key">
+      <option name="closed" value="true" />
+      <created>1710511276262</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1710511276262</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat : protect endpoints with API key">
+      <option name="closed" value="true" />
+      <created>1710511483431</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1710511483431</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat : protect endpoints with API key">
+      <option name="closed" value="true" />
+      <created>1710511636216</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1710511636216</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add web components." />
+    <MESSAGE value="add api components." />
+    <MESSAGE value="add next js deployment." />
+    <MESSAGE value="add shorten and redirect django apps." />
+    <MESSAGE value="feat : add create, retrieve and list APIs for short links." />
+    <MESSAGE value="feat : protect endpoints with API key" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : protect endpoints with API key" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/URLShortener$manage.coverage" NAME="manage Coverage Results" MODIFIED="1706745236290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
