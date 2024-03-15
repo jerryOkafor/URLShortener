@@ -7,10 +7,12 @@ on:
     paths:
       - "web/**"
       - ".github/workflows/BuildWeb.yml"
+      - "!.github/workflows/BuildApi.yml"
   pull_request:
     paths:
       - "web/**"
       - ".github/workflows/BuildWeb.yml"
+      - "!.github/workflows/BuildApi.yml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
