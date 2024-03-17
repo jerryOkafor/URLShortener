@@ -4,10 +4,9 @@ import {useFormState, useFormStatus} from "react-dom";
 import {createShortLink} from "@/app/actions";
 import React, {useState} from "react";
 import {ShortLink} from "@/app/interfaces";
-import {Button, Tooltip} from "./providers";
-import {Typography} from "@material-tailwind/react";
 import {CheckIcon, DocumentDuplicateIcon, GlobeAltIcon} from "@heroicons/react/24/outline";
 import {useCopyToClipboard} from "usehooks-ts";
+import {Button, Tooltip, Typography} from "@material-tailwind/react";
 
 const initialState: ShortLink = {
     exists: false,
@@ -59,11 +58,12 @@ export function ClipboardWithTooltip({shortUrl}: ClipboardProps) {
                     copy(shortUrl);
                     setCopied(true);
                 }}
-                className="flex flex-wrap-ns items-center text-wrap gap-x-3 px-4 py-2.5 lowercase">
+                className="flex flex-wrap-ns items-center text-wrap gap-x-3 px-4 py-2.5 lowercase"
+                placeholder="">
 
                 <Typography
                     className="border-r border-gray-400/50 pr-3 font-normal"
-                    variant="small">
+                    variant="small" placeholder="">
                     {shortUrl}
                 </Typography>
 
@@ -118,13 +118,15 @@ export function CreateShortLinkForm() {
                     <div className="flex flex-row space-x-4">
                         <ClipboardWithTooltip shortUrl={state.short_url}/>
                         <Button onClick={() => {
-                            openInNewTab(state.short_url)
+                            openInNewTab(state.short_url);
                         }}
                                 type="button"
-                                className="flex flex-wrap-ns items-center text-wrap gap-x-3 px-4 py-2.5 lowercase">
+                                className="flex flex-wrap-ns items-center text-wrap gap-x-3 px-4 py-2.5 lowercase"
+                                placeholder="">
                             <Typography
                                 className="border-r border-gray-400/50 pr-3 font-normal"
-                                variant="small">
+                                variant="small"
+                                placeholder="">
                                 {state.short_url}
                             </Typography>
                             <GlobeAltIcon className="h-4 w-4 text-white"/>

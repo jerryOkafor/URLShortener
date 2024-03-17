@@ -191,3 +191,6 @@ https://auth0.com/blog/using-nextjs-server-actions-to-call-external-apis/
 
 IconKitchen
 https://icon.kitchen
+
+https://www.figma.com/file/RwXec8gtE294CpkiG1h3Ha/URL-Shorter-Website-Design-(Community)?type=design&node-id=0-1&mode=design&t=WIIVa6cnkZ54hwLC-0
+https://www.figma.com/file/0Cg4PIorzVa1HbJp8gX1F3/URL-Shortner-(Community)?type=design&node-id=0-1&mode=design&t=byFoF1VfiaFKba2F-0

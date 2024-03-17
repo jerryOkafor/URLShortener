@@ -2,7 +2,7 @@
 
 import React, {useEffect, useRef, useState} from "react";
 import {getShortLink} from "@/app/actions";
-import {Spinner} from "@material-tailwind/react";
+import Spinner from "@material-tailwind/react/components/Spinner";
 
 type Params = {
     params: {
@@ -40,7 +40,6 @@ export default function Links({params}: Params) {
             fetchData();
         }
     }, [params]);
-
 
     return (
         <>
