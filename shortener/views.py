@@ -3,12 +3,13 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework_api_key.permissions import HasAPIKey
 
 from shortener.models import ShortUrl
 from shortener.serializers.ShortUrlSerializer import ShortUrlSerializer
-from utils.URLServiceBase62 import URLServiceBase62
+from utils.URLServiceMd5 import URLServiceMd5
 
 short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
 
@@ -26,7 +27,7 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
     ),
     responses={
         200: short_url_response,
-        404: 'slug not found'
+        404: '[...shortCode] not found'
     },
     tags=['API'])
 @swagger_auto_schema(
@@ -35,7 +36,7 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
     operation_description="Returns list all generated shor urls",
     responses={
         200: ShortUrlSerializer(many=True),
-        404: 'slug not found'
+        404: '[...shortCode] not found'
     },
     tags=['API'])
 @api_view(["POST", "GET"])
@@ -44,31 +45,21 @@ def create_short_url_or_get_short_urls(request, version):
     if request.method == "POST":
         long_url = request.data.get('long_url')
 
-        shortenedUrl = ShortUrl.objects.filter(long_url=long_url)
-        is_shortened = shortenedUrl.exists()
-        if is_shortened:
-            response = {
-                'long_url': long_url,
-                'exists': True,
-                'short_url': shortenedUrl.get().short_url
-            }
-            return Response(data=response, status=status.HTTP_200_OK)
+        if ShortUrl.objects.filter(long_url=long_url).exists():
+            query = ShortUrl.objects.get(long_url=long_url)
+            serializer = ShortUrlSerializer(query, many=False)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
 
-        url_service = URLServiceBase62()
+        url_service = URLServiceMd5()
         short_url, short_code = url_service.long_to_short(long_url)
 
         data = {"long_url": long_url, "short_url": short_url, "short_code": short_code}
 
-        serializer = ShortUrlSerializer(data=data)
+        serializer = (ShortUrlSerializer(data=data))
+        serializer.is_valid()
         serializer.is_valid(raise_exception=True)
         serializer.save()
-
-        response = {
-            'long_url': long_url,
-            'exists': False,
-            'short_url': short_url
-        }
-        return Response(data=response, status=status.HTTP_200_OK)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
     else:
         queryset = ShortUrl.objects.all()
         serializer = ShortUrlSerializer(queryset, many=True)
@@ -91,6 +82,11 @@ def get_single_short_url(request, version, short_code):
     is_shortened = shortenedUrl.exists()
     if is_shortened:
         url = shortenedUrl.get()
+
+        # increase the hit count
+        url.hit = url.hit + 1
+        url.save()
+
         serializer = ShortUrlSerializer(url, many=False)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 

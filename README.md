@@ -16,7 +16,7 @@ URL. The base 62 number is used to ensure that the shortened URL is as short as 
 ### Run Django Server
 
 ```bash
-manage.py runserver localhost:8000
+./manage.py runserver localhost:8000
 ```
 
 ### Run Next JS Web UI
@@ -186,3 +186,8 @@ pip install --upgrade setuptools
 pip install --upgrade distribute 
 
 https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
+
+https://auth0.com/blog/using-nextjs-server-actions-to-call-external-apis/
+
+IconKitchen
+https://icon.kitchen
