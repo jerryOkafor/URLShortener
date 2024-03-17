@@ -3,6 +3,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {getShortLink} from "@/app/actions";
 import {Spinner} from "@material-tailwind/react";
+import "tailwindcss-react-native/types.d";
 
 type Params = {
     params: {
