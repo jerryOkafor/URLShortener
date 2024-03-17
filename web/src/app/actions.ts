@@ -1,6 +1,6 @@
 "use server";
 
-import {apiVersion, baseUrl, apiKey} from "@/app/config/apiConfig";
+import {apiKey, apiVersion, baseUrl} from "@/app/config/apiConfig";
 import {ShortLink} from "@/app/interfaces";
 
 export async function createShortLink(
@@ -31,9 +31,7 @@ export async function showAllLinks(): Promise<[ShortLink]> {
             'X-Api-Key': apiKey,
         }
     });
-    const res = await response.json()
-    console.log("Binding: ", res)
-    return res
+    return await response.json()
 }
 
 export async function getShortLink(shortCode: String): Promise<ShortLink> {
