@@ -4,6 +4,7 @@ import Link from "next/link";
 import {ShortLink} from "@/app/interfaces";
 
 export default async function Links() {
+
     let allLinks = new Array<ShortLink>() //await showAllLinks()
 
     return (
