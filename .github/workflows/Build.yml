@@ -25,10 +25,10 @@ jobs:
         with:
           filters: |
             web:
-              - './.github/workflows/BuildWeb.yml'
+              - './.github/workflows/Build.yml'
               - './web/**'
             api:
-              - '!./.github/workflows/BuildWeb.yml'
+              - '!./.github/workflows/Build.yml'
               - '!./web/**'
             docs:
               - './README.md'
@@ -69,8 +69,8 @@ jobs:
           NEXT_PUBLIC_MESSAGING_SENDER_ID: ${{ vars.WEB_MESSAGING_SENDER_ID }}
           NEXT_PUBLIC_APP_ID: ${{ secrets.WEB_APP_ID }}
           NEXT_PUBLIC_MEASUREMENT_ID: ${{ vars.WEB_MEASUREMENT_ID }}
-          NEXT_PUBLIC_APP_API_BASE_URL: ${{ vars.APP_API_BASE_URL }}
-          NEXT_PUBLIC_APP_API_KEY: ${{ vars.APP_API_KEY }}
+          NEXT_PUBLIC_APP_API_BASE_URL: ${{ secrets.APP_API_BASE_URL }}
+          NEXT_PUBLIC_APP_API_KEY: ${{ secrets.APP_API_KEY }}
 
   build-api:
     name: Build API
