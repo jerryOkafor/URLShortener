@@ -60,6 +60,22 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Use gcloud CLI
+      - name: Access gcloud CLI
         run: |
-          gcloud info
+          gcloud auth configure-docker
+
+      - name: SSH into VM
+        id: 'compute-ssh'
+        uses: 'google-github-actions/ssh-compute@v1'
+        with:
+          instance_name: '${{ vars.GCP_INSTANCE_NAME }}'
+          zone: '${{ vars.GCP_INSTANCE_ZONE }}'
+          ssh_private_key: '${{ secrets.GCP_SSH_PRIVATE_KEY }}'
+          command: 'cat .env'
+
+      # Example of using the output
+      - name: Show result of SSH int Vm
+        id: 'test'
+        run: |-
+          echo '${{ steps.compute-ssh.outputs.stdout }}'
+          echo '${{ steps.compute-ssh.outputs.stderr }}'

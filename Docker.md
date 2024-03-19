@@ -27,3 +27,8 @@ docker ps
 ```bash
 docker push jerryokafor/url-shortener:latest
 ```
+
+### Remove container
+```bash
+docker rm -f mycontainer
+```
