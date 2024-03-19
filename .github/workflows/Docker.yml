@@ -60,9 +60,9 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Access gcloud CLI
-        run: |
-          gcloud auth configure-docker
+      #      - name: Access gcloud CLI
+      #        run: |
+      #          gcloud auth configure-docker
 
       - name: SSH into VM
         id: compute-ssh
@@ -72,6 +72,7 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
+            echo 'Hello world from vm'
             cat .env
 
       # Example of using the output

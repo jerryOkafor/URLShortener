@@ -164,3 +164,5 @@ cython_debug/
 /.idea/httpRequests/*
 /.idea/copilot/*
 .idea/workspace.xml
+/.sshkey
+/.sshkey.pub
