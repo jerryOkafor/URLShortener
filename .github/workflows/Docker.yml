@@ -55,7 +55,7 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Set up gcloud CLI
+      - name: Setup gcloud CLI
         uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
@@ -72,7 +72,8 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
-            docker ps
+            cat .env
+            sudo docker ps
 
       # Example of using the output
       - name: Show result of SSH int Vm
