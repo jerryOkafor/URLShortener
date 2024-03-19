@@ -10,11 +10,6 @@ type Params = {
     };
 };
 
-const openInNewTab = (url: string) => {
-    window.open("", '_blank', 'noopener,noreferrer');
-    window.location.href = url
-
-}
 export default function LinkPreview({params}: Params) {
     const handledRedirect = useRef(false);
     const [isFetching, setFetching] = useState(true);
@@ -24,8 +19,7 @@ export default function LinkPreview({params}: Params) {
         setFetching(true);
         getShortLink(params.shortCode).then((data) => {
             setFetching(false);
-            openInNewTab(data.long_url)
-            window.close()
+            window.location.href = data.long_url
         }).catch((error) => {
             setFetching(false);
             console.error('Error fetching data:', error);
