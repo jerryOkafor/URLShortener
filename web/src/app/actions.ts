@@ -22,7 +22,7 @@ export async function createShortLink(
     return await response.json()
 }
 
-export async function showAllLinks(): Promise<[ShortLink]> {
+export async function showAllLinks(): Promise<[ShortLink] | null> {
     const response = await fetch(`${baseUrl}/api/${apiVersion}/url`, {
         cache: 'no-store',
         method: 'GET',
