@@ -74,7 +74,7 @@ jobs:
           command: |
             cat /home/jerryhanksokafor/.env
             sudo docker ps
-            sudo docker run --name url-shortener --env-file .env -p 8000:8000 jerryokafor/url-shortener
+#            sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
 
       # Example of using the output
       - name: Show result of SSH int Vm
