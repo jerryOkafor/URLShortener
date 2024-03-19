@@ -2,9 +2,10 @@ import Header from "@/app/components/header";
 import Container from "@/app/components/container";
 import Link from "next/link";
 import {ShortLink} from "@/app/interfaces";
+import {showAllLinks} from "@/app/actions";
 
 export default async function Links() {
-    let allLinks = new Array<ShortLink>() //await showAllLinks()
+    let allLinks: [ShortLink] = await showAllLinks()
 
     return (
         <>
