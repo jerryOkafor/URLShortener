@@ -72,8 +72,7 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
-            echo 'Hello world from vm'
-            cat .env
+            docker ps
 
       # Example of using the output
       - name: Show result of SSH int Vm
