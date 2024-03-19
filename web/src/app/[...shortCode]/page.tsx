@@ -11,7 +11,8 @@ type Params = {
 };
 
 const openInNewTab = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open("", '_blank', 'noopener,noreferrer');
+    window.location.href = url
 
 }
 export default function LinkPreview({params}: Params) {
@@ -36,7 +37,6 @@ export default function LinkPreview({params}: Params) {
     useEffect(() => {
         if (!handledRedirect.current) {
             handledRedirect.current = true
-
             fetchData();
         }
     }, [params]);
