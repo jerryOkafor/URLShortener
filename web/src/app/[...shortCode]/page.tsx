@@ -14,7 +14,7 @@ const openInNewTab = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
 
 }
-export default function Links({params}: Params) {
+export default function LinkPreview({params}: Params) {
     const handledRedirect = useRef(false);
     const [isFetching, setFetching] = useState(true);
     const [isError, setIsError] = useState("")

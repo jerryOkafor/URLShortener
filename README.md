@@ -171,6 +171,11 @@ Generate a new requirements.txt file
 ```bash
 pip freeze > requirements.txt
 ```
+
+### Generate ssh priv/pub key
+```bash
+ssh-keygen -t rsa -b 4096 -C "jerryokafor@gmail.com"
+```
 https://ericsysmin.com/2024/02/05/how-to-install-pyenv-on-macos/
 pyenv virtualenv 3.8.0 my-env
 https://ioflood.com/blog/pyenv/#:~:text=First%2C%20install%20pyenv%2Dvirtualenv%20using,pyenv%20virtualenv%203.8.
@@ -194,3 +199,10 @@ https://icon.kitchen
 
 https://www.figma.com/file/RwXec8gtE294CpkiG1h3Ha/URL-Shorter-Website-Design-(Community)?type=design&node-id=0-1&mode=design&t=WIIVa6cnkZ54hwLC-0
 https://www.figma.com/file/0Cg4PIorzVa1HbJp8gX1F3/URL-Shortner-(Community)?type=design&node-id=0-1&mode=design&t=byFoF1VfiaFKba2F-0
+
+https://www.vultr.com/news/new-free-tier-plan/
+
+https://appliku.com/post/deploy-django-google-cloud-platform-gcp/
+https://dev.to/facepalm/how-to-deploy-production-django-4-using-google-cloud-run-cloud-sql-and-cloud-storage-2i7d
+
+https://gist.github.com/cse031sust02/f149d809d50116e7890691d73922d379

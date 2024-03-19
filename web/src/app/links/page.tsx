@@ -1,11 +1,36 @@
+'use client'
+
 import Header from "@/app/components/header";
 import Container from "@/app/components/container";
 import Link from "next/link";
 import {ShortLink} from "@/app/interfaces";
 import {showAllLinks} from "@/app/actions";
+import React, {useEffect, useState} from "react";
+import Spinner from "@material-tailwind/react/components/Spinner";
 
-export default async function Links() {
-    let allLinks: [ShortLink] = await showAllLinks()
+export default function Links() {
+    const [data, setData] = useState<[ShortLink] | null>(null)
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect(() => {
+        showAllLinks()
+            .then((res) => {
+                setLoading(false)
+                setData(res)
+            }).catch((error) => {
+            setLoading(false)
+        })
+    }, []);
+
+    if (isLoading) return (
+        <>
+            <div className="flex h-screen">
+                <div className="m-auto">
+                    <Spinner color="red" className="h-12 w-12 justify-self-center"/>
+                </div>
+            </div>
+        </>
+    )
 
     return (
         <>
@@ -15,9 +40,9 @@ export default async function Links() {
                     <p className="text-red-300">List of all generated short links</p>
                 </div>
 
-                {allLinks.length ? (
+                {data?.length ? (
                     <ul className="mt-8 flex-col space-y-4">
-                        {allLinks.map((shortLink) => (
+                        {data.map((shortLink) => (
                             <li key={shortLink.id} className="flex flex-row justify-between space-x-2 w-full">
                                 <Link href={shortLink.short_url}
                                       target="_blank">{shortLink.short_url}</Link>
@@ -25,9 +50,7 @@ export default async function Links() {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <EmptyState/>
-                )}
+                ) : <EmptyState/>}
             </Container>
         </>
     )
