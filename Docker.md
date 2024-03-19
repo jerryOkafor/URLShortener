@@ -13,7 +13,7 @@ docker build --tag jerryokafor/url-shortener .
 ### Run Docker IMage
 
 ```bash
-docker run --name url-shortener --env-file .env -p 8000:8000 jerryokafor/url-shortener
+docker run -d --name url-shortener --env-file .env -p 8000:8000 jerryokafor/url-shortener
 ```
 
 ### Show all running containers
