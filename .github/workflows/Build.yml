@@ -126,7 +126,8 @@ jobs:
           pipenv run coverage report
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           slug: jerryOkafor/URLShortener
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
