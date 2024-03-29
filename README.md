@@ -75,6 +75,30 @@ More Doc [Here](URLShortener.http)
 ./manage.py startapp api
 ```
 
+### Run App
+
+```bash
+./manage.py runserver localhost:8000 
+
+```
+
+### Run Tests
+```bash
+./manage.py test
+```
+
+### Run tests with coverage
+
+```bash 
+coverage run --source='.' manage.py test
+````
+
+### Generate coverage report
+
+```bash
+coverage report
+```
+
 ### Run Migration
 
 ```bash
@@ -173,9 +197,11 @@ pip freeze > requirements.txt
 ```
 
 ### Generate ssh priv/pub key
+
 ```bash
 ssh-keygen -t rsa -b 4096 -C "jerryokafor@gmail.com"
 ```
+
 https://ericsysmin.com/2024/02/05/how-to-install-pyenv-on-macos/
 pyenv virtualenv 3.8.0 my-env
 https://ioflood.com/blog/pyenv/#:~:text=First%2C%20install%20pyenv%2Dvirtualenv%20using,pyenv%20virtualenv%203.8.
@@ -188,7 +214,7 @@ pyenv activate urlshortener
 pyenv deactivate
 pyenv uninstall venv
 pip install --upgrade setuptools
-pip install --upgrade distribute 
+pip install --upgrade distribute
 
 https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
 

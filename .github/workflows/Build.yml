@@ -116,6 +116,10 @@ jobs:
 
       - name: Run tests
         run: |
-          pipenv run python manage.py test
+          pipenv run coverage run --source='.' manage.py test
         env:
           SECRET_KEY: "NSNLNDNLN"
+
+      - name: Generate coverage report
+        run: |
+          pipenv run coverage report

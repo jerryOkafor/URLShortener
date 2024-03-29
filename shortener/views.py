@@ -3,7 +3,6 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework_api_key.permissions import HasAPIKey
 
@@ -15,9 +14,9 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
 
 
 @swagger_auto_schema(
-    operation_id="Generate short url from a long url",
+    operation_id="Generate short url",
     method="post",
-    operation_description="Generate a short url given a long url",
+    operation_description="Generate a short url",
     request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         required=['long_url'],
@@ -33,7 +32,7 @@ short_url_response = openapi.Response('Shor URL response', ShortUrlSerializer)
 @swagger_auto_schema(
     operation_id="List all generated short url",
     method="get",
-    operation_description="Returns list all generated shor urls",
+    operation_description="Returns list all short urls",
     responses={
         200: ShortUrlSerializer(many=True),
         404: '[...shortCode] not found'
@@ -67,9 +66,9 @@ def create_short_url_or_get_short_urls(request, version):
 
 
 @swagger_auto_schema(
-    operation_id="Retrieve long url for a given short url",
+    operation_id="Retrieve long url",
     method="get",
-    operation_description="Generate a short url given a long url",
+    operation_description="Generate short url details",
     responses={
         200: short_url_response,
         404: "Short URL not found"

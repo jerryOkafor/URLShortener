@@ -35,7 +35,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api-account/', include('rest_framework.urls')),
     path('doc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    re_path(r'api/(?P<version>[v1|v2]+)/', include('shortener.urls'), name='url')
+    re_path(r'api/(?P<version>[v1|v2]+)/', include("account.urls"), name='api'),
+    re_path(r'api/(?P<version>[v1|v2]+)/', include("shortener.urls"), name='api')
 ]

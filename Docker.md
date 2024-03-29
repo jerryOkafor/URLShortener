@@ -32,3 +32,9 @@ docker push jerryokafor/url-shortener:latest
 ```bash
 docker rm -f mycontainer
 ```
+
+
+### Access container shell
+```bash
+docker exec -it <mycontainer> bash
+```
