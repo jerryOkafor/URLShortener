@@ -1,4 +1,5 @@
 # URL Shortener
+[![codecov](https://codecov.io/gh/jerryOkafor/URLShortener/graph/badge.svg?token=0EXB9TCKDW)](https://codecov.io/gh/jerryOkafor/URLShortener)
 
 ## Description
 
@@ -6,6 +7,7 @@ This is a simple URL shortener that takes a long URL and returns a shortened ver
 combination of the base URL and a unique identifier. The unique identifier is generated using a counter that is
 incremented each time a new URL is shortened. The counter is then converted to a base 62 number and appended to the base
 URL. The base 62 number is used to ensure that the shortened URL is as short as possible.
+
 
 ## Usage
 
