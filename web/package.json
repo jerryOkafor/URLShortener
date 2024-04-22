@@ -13,11 +13,14 @@
     "@material-tailwind/react": "^2.1.9",
     "cors": "^2.8.5",
     "firebase": "^10.7.2",
-    "next": "^14.2.0-canary.24",
+    "iron-session": "^8.0.1",
+    "next": "^14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-qr-code": "^2.0.12",
-    "usehooks-ts": "^3.0.1"
+    "swr": "^2.2.4",
+    "usehooks-ts": "^3.0.1",
+    "zod": "^3.22.5"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

@@ -13,6 +13,8 @@ python-dotenv = "*"
 djangorestframework-api-key = "==2.*"
 drf-yasg = "*"
 setuptools = "*"
+coverage = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

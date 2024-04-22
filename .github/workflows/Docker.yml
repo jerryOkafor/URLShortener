@@ -14,7 +14,7 @@ on:
     branches:
       - main
   release:
-    types: [ published ]
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -50,8 +50,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Setup gcloud Auth
-        id: auth
-        uses: google-github-actions/auth@v2
+        id: account
+        uses: google-github-actions/account@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
@@ -62,7 +62,7 @@ jobs:
 
       #      - name: Access gcloud CLI
       #        run: |
-      #          gcloud auth configure-docker
+      #          gcloud account configure-docker
 
       - name: SSH into VM
         id: compute-ssh
@@ -74,7 +74,7 @@ jobs:
           command: |
             cat /home/jerryhanksokafor/.env
             sudo docker ps
-#            sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
+            sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
 
       # Example of using the output
       - name: Show result of SSH int Vm
