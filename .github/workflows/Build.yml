@@ -34,8 +34,7 @@ jobs:
               - './README.md'
               - './web/README.md'
       - name: List all changed files
-        run:
-          echo steps.filter.outputs
+        run: echo steps.filter.outputs
 
   build-web:
     name: Build Web
@@ -53,7 +52,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: |
@@ -97,7 +96,7 @@ jobs:
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Cache PipEnv
         id: cache-pipenv
@@ -120,13 +119,13 @@ jobs:
 
       - name: Run tests
         run: |
-          pipenv run coverage run --source='.' manage.py test
+          coverage run --source='.' manage.py test
         env:
           SECRET_KEY: "NSNLNDNLN"
 
       - name: Generate coverage report
         run: |
-          pipenv run coverage xml
+          coverage xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
