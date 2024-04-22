@@ -51,7 +51,7 @@ jobs:
 
       - name: Setup gcloud Auth
         id: account
-        uses: google-github-actions/account@v2
+        uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
