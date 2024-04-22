@@ -23,8 +23,8 @@ function AboutSection() {
           <h1>Welcome to Url Shortener!</h1>
           <p>
             At Url Shortener, we understand the importance of simplicity and
-            efficiency in today's fast-paced digital landscape. Our mission is
-            to provide users with a reliable, user-friendly URL shortening
+            efficiency in today&aposs fast-paced digital landscape. Our mission
+            is to provide users with a reliable, user-friendly URL shortening
             service that enhances their online communication experience. We
             believe that every click counts, and by shortening URLs, we help
             users save time, improve readability, and maximize the impact of
