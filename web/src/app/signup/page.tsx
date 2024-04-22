@@ -129,7 +129,7 @@ function SignUpForm() {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Alreay have an account?&nbsp; &nbsp;
+            Alreay have an account?&nbsp;&nbsp;
             <a
               href="/signin"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"

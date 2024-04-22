@@ -158,7 +158,7 @@ function SignInForm() {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?&nbsp; &nbsp;
+            Not a member?&nbsp;&nbsp;
             <a
               href="/signup"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
