@@ -80,7 +80,7 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = "api.urls"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 TEMPLATES = [
     {
