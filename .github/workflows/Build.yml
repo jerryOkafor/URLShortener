@@ -119,13 +119,13 @@ jobs:
 
       - name: Run tests
         run: |
-          coverage run --source='.' manage.py test
+          pipenv run coverage run --source='.' manage.py test
         env:
           SECRET_KEY: "NSNLNDNLN"
 
       - name: Generate coverage report
         run: |
-          coverage xml
+          pipenv run coverage xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
