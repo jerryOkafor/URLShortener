@@ -1,23 +1,23 @@
-import type {Metadata} from "next";
-import {Inter} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import {ThemeProvider} from "@/app/components/providers";
+import { ThemeProvider } from "@/app/components/providers";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "URL Shortener",
-    description: "Generate a short url for your long url with ease!!",
+  title: "URL Shortener",
+  description: "Generate a short url for your long url with ease!!",
 };
 
-export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
-    return (
-        <html lang="en">
-        <ThemeProvider>
-            <body className={inter.className}>
-            {children}
-            </body>
-        </ThemeProvider>
-        </html>
-    );
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" className="h-full bg-white">
+      <ThemeProvider>
+        <body className="${inter.className} h-full">{children}</body>
+      </ThemeProvider>
+    </html>
+  );
 }

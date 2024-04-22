@@ -1,3 +1,5 @@
+import json
+
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
@@ -7,12 +9,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_api_key import permissions
 
-from account.serializers.AuthUserSerializer import AuthUserSerializer
+from account.serializers.AuthUserCreateSerializer import AuthUserSerializer
+from account.serializers.AuthUserLoginSerializer import AuthUserLoginSerializer
 
 
 # Create your views here.
-
-
 class AuthUserCreate(APIView):
     """
     Create a user given username, email and password
@@ -27,14 +28,21 @@ class AuthUserCreate(APIView):
             type=openapi.TYPE_OBJECT,
             required=["username", "email", "password"],
             properties={
-                'username': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_SLUG),
-                'email': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_EMAIL),
-                'password': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_PASSWORD),
+                "username": openapi.Schema(
+                    type=openapi.TYPE_STRING, format=openapi.FORMAT_SLUG
+                ),
+                "email": openapi.Schema(
+                    type=openapi.TYPE_STRING, format=openapi.FORMAT_EMAIL
+                ),
+                "password": openapi.Schema(
+                    type=openapi.TYPE_STRING, format=openapi.FORMAT_PASSWORD
+                ),
             },
         ),
         responses={200: AuthUserSerializer()},
         operation_description="Create user account using username, email and password",
-        tags=["API"])
+        tags=["API"],
+    )
     def post(self, request, version, format="json"):
         serializer = AuthUserSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
@@ -51,20 +59,37 @@ class AuthUserLogin(APIView):
     """
     Login user using email and password.
     """
+
     permission_classes = [permissions.HasAPIKey]
 
     @swagger_auto_schema(
         operation_id="Login User",
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
-            required=["email", "password"],
+            required=["username", "password"],
             properties={
-                'email': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_EMAIL),
-                'password': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_PASSWORD),
+                "username": openapi.Schema(
+                    type=openapi.TYPE_STRING, format=openapi.FORMAT_EMAIL
+                ),
+                "password": openapi.Schema(
+                    type=openapi.TYPE_STRING, format=openapi.FORMAT_PASSWORD
+                ),
             },
         ),
-        responses={200: AuthUserSerializer()},
+        responses={200: AuthUserLoginSerializer()},
         operation_description="Login user using email and password",
-        tags=["API"])
+        tags=["API"],
+    )
     def post(self, request, version, format="json"):
-        return Response(f"Hello from login: {request} | {version}", status=status.HTTP_200_OK)
+        print(request)
+        serializer = AuthUserLoginSerializer(
+            data=request.data,
+            context={"request": request, "exlude_fields": ["username", "password"]},
+        )
+
+        try:
+            serializer.is_valid(raise_exception=True)
+            print(serializer.errors)
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        except ValidationError as e:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

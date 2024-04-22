@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PY-233.14475.56">
-    <data-source name="db" uuid="a06b5fcd-59ba-49eb-81ef-6c6a7dcef533">
+    <data-source name="Django default" uuid="dcfbd98a-c7a9-4355-84af-34f4e5174941">
       <database-info product="SQLite" version="3.45.1" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.45.1.0" dbms="SQLITE" exact-version="3.45.1" exact-driver-version="3.45">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

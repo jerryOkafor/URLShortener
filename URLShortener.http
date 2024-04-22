@@ -1,30 +1,35 @@
 ###
-# @name: Register
-POST http://localhost:8000/api/v1/auth/register
+# @name: Login
+POST http://localhost:8000/api/v1/auth/login HTTP/1.1
 Content-Type: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 {
-  "username": "uername5",
-  "email": "user5@example.com",
+   "username": "uername5",
   "password": "password1"
 }
 
 ###
-# @name: Login
-POST http://localhost:8000/api/v1/auth/login
+# @name: SignUp
+POST http://localhost:8000/api/v1/auth/register HTTP/1.1
 Content-Type: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
+{
+  "username": "uername7",
+  "email": "user7@example.com",
+  "password": "password3"
+}
+
 ###
 # @name: Retrive Short link URL
-GET http://localhost:8000/api/v1/url/1L9zO9O
+GET http://localhost:8000/api/v1/url/352a3e HTTP/1.1
 Accept: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 ###
 # @name: Test short link generator
-POST http://localhost:8000/api/v1/url
+POST http://localhost:8000/api/v1/url HTTP/1.1
 Content-Type: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
@@ -34,7 +39,7 @@ X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 ###
 # @name: List all genrerated urls
-GET http://localhost:8000/api/v1/url
+GET http://localhost:8000/api/v1/url HTTP/1.1
 Accept: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 

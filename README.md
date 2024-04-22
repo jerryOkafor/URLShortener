@@ -1,4 +1,5 @@
 # URL Shortener
+
 [![codecov](https://codecov.io/gh/jerryOkafor/URLShortener/graph/badge.svg?token=0EXB9TCKDW)](https://codecov.io/gh/jerryOkafor/URLShortener)
 
 ## Description
@@ -7,7 +8,6 @@ This is a simple URL shortener that takes a long URL and returns a shortened ver
 combination of the base URL and a unique identifier. The unique identifier is generated using a counter that is
 incremented each time a new URL is shortened. The counter is then converted to a base 62 number and appended to the base
 URL. The base 62 number is used to ensure that the shortened URL is as short as possible.
-
 
 ## Usage
 
@@ -21,13 +21,19 @@ URL. The base 62 number is used to ensure that the shortened URL is as short as 
 ./manage.py runserver localhost:8000
 ```
 
+### Collect static files
+
+```bash
+./manage.py collectstatic
+```
+
 ### Run Next JS Web UI
 
 Read more about how to run the Web UI [Here](/web/README.md)
 
 ### Run Migration using the migration command
 
-### Generate local api key using Django shell and the command below:
+### Generate local API key using Django shell and the command below:
 
 ```
 >>> from rest_framework_api_key.models import APIKey
@@ -80,20 +86,21 @@ More Doc [Here](URLShortener.http)
 ### Run App
 
 ```bash
-./manage.py runserver localhost:8000 
+./manage.py runserver localhost:8000
 
 ```
 
 ### Run Tests
+
 ```bash
 ./manage.py test
 ```
 
 ### Run tests with coverage
 
-```bash 
+```bash
 coverage run --source='.' manage.py test
-````
+```
 
 ### Generate coverage report
 
@@ -110,7 +117,7 @@ coverage report
 ### Roll back migration
 
 ```bash
-./manage.py migrate shortener zero 
+./manage.py migrate shortener zero
 ```
 
 ### Start Django Shell
@@ -161,13 +168,13 @@ lunchy stop memcached
 - [x] Add Web Framework to the repository
 - [x] Add API Framework to the repository
 - [x] Add GitHub actions to the repository (CI/CD)
-- [x] Deploy Web app to Firebase or Varcel
+- [x] Deploy the Web app to Firebase or Varcel
 - [ ] Deploy API to Heroku/Google App engine
 
 #### Milestone`1`
 
 - [x] Decide what to build
-- [x] Create profile on GitHub
+- [x] Create a profile on GitHub
 - [x] Create a new repository on GitHub
 - [x] Add a README.md file
 - [x] Share your project with the class
@@ -182,13 +189,13 @@ lunchy stop memcached
 
 - [ ] Add a project roadmap to the README.md file. Simple list of features that you wish to develop
 - [ ] Indicate which features are in progress and which features are completed
-- [ ] Review and update project to ensure that `How to run the application` section is up-to-date
+- [ ] Review and update the project to ensure that `How to run the application` section is up-to-date
 - [ ] Share your project on the group Slack channel
 
 #### Milestone`4`
 
 - [ ] Update your readme file as needed. Ensure roadmap and other documentation are up-to-date
-- [ ] Share your project on the group Slack channel and present a short summary of what you wish to present.
+- [ ] Share your project on the group Slack channel and present a summary of what you wish to present.
 
 ### CMDS
 
@@ -198,7 +205,7 @@ Generate a new requirements.txt file
 pip freeze > requirements.txt
 ```
 
-### Generate ssh priv/pub key
+### Generate SSH private/public key
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C "jerryokafor@gmail.com"
