@@ -61,18 +61,19 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Setup gcloud CLI
+      - name: Setup gcloud SDK
         uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Access gcloud CLI
+      - name: Access gcloud SDK
         run: |
+          gcloud info
           gcloud auth configure-docker
 
       - name: Build docker-compose.yml
         run: |
-          sed "s/DOCKER_IMAGE_NAME/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
+          sed "s/DOCKER_IMAGE_NAME_STAGING/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
           sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
@@ -81,6 +82,7 @@ jobs:
         run: |
           echo "APP_API_BASE_URL=${{secrets.APP_API_BASE_URL}}" >> .env
           cat .env
+          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/
 
       - name: SSH into VM
         id: compute-ssh
