@@ -74,8 +74,8 @@ jobs:
       - name: Build docker-compose.yml
         run: |
           sed "s/DOCKER_IMAGE_NAME_STAGING/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
-          sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{secrets.DOCKER_USERNAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
+          sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
 
       - name: Compose and copy .env file
