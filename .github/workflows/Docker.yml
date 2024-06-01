@@ -78,13 +78,13 @@ jobs:
           sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
-          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/ --zone=us-central1-a
+          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:/home/jerryhanksokafor/ --zone=us-central1-a
 
       - name: Compose and copy .env file
         run: |
           echo "APP_API_BASE_URL=${{secrets.APP_API_BASE_URL}}" >> .env
           cat .env
-          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/ --zone=us-central1-a
+          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:/home/jerryhanksokafor/ --zone=us-central1-a
 
       - name: SSH into VM
         id: compute-ssh
