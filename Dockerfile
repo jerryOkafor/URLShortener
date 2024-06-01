@@ -2,7 +2,7 @@
 # Version: 1.0
 
 # FROM - Image to start building on.
-FROM python:3
+FROM python:3.12-slim
 
 
 # PROJECT SETUP
@@ -31,6 +31,11 @@ COPY . .
 
 # expose the port
 EXPOSE 8000
+EXPOSE 443
+
+RUN python manage.py collectstatic
+
+RUN python manage.py migrate
 
 # Command to run
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "api.wsgi", "--bind", "0.0.0.0:8000", "--bind", "0.0.0.0:443"]
