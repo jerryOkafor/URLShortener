@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  staging:
+    profiles: [staging]
+    image: DOCKER_IMAGE_NAME_STAGING:latest
+    container_name: DOCKER_CONTAINER_NAME_STAGING
+    restart: unless-stopped
+    volumes:
+      - ./urls-shortener:/api
+    ports:
+      - "8000:8000"
+      - "80:8000"
+      - "443:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=api.settings
+
+  # production:
+  #   profiles: [production]
+  #   image: DOCKER_IMAGE_NAME:latest
+  #   container_name: DOCKER_CONTAINER_NAME
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./urls-shortener:/api
+  #   ports:
+  #     - "8000:8000"
+  #     - "80:8000"
+  #     - "443:8000"
+  #   environment:
+  #     - DJANGO_SETTINGS_MODULE=api.settings

@@ -21,6 +21,12 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE_NAME_STAGING: jerryokafor/url-shortener
+      DOCKER_CONTAINER_NAME_STAGING: url-shortner-staging
+      DOCKER_IMAGE_NAME: jerryokafor/url-shortener
+      DOCKER_CONTAINER_NAME: url-shortner
+
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -49,31 +55,44 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      # - name: Setup gcloud Auth
-      #   id: account
-      #   uses: google-github-actions/auth@v2
-      #   with:
-      #     credentials_json: ${{ secrets.GCP_SA_KEY }}
+      - name: Setup gcloud Auth
+        id: account
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-      # - name: Setup gcloud CLI
-      #   uses: google-github-actions/setup-gcloud@v2
-      #   with:
-      #     project_id: ${{ secrets.GCP_PROJECT_ID }}
+      - name: Setup gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      # #      - name: Access gcloud CLI
-      # #        run: |
-      # #          gcloud account configure-docker
+      - name: Access gcloud CLI
+        run: |
+          gcloud auth configure-docker
 
-      # - name: SSH into VM
-      #   id: compute-ssh
-      #   uses: google-github-actions/ssh-compute@v1
-      #   with:
-      #     instance_name: ${{ vars.GCP_INSTANCE_NAME }}
-      #     zone: ${{ vars.GCP_INSTANCE_ZONE }}
-      #     ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
-      #     command: |
-      #       cat /home/jerryhanksokafor/.env
-      #       sudo docker ps
+      - name: Build docker-compose.yml
+        run: |
+          sed "s/DOCKER_IMAGE_NAME/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
+          sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
+          sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
+          sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
+
+      - name: Compose and copy .env file
+        run: |
+          echo "APP_API_BASE_URL=${{secrets.APP_API_BASE_URL}}" >> .env
+          cat .env
+
+      - name: SSH into VM
+        id: compute-ssh
+        uses: google-github-actions/ssh-compute@v1
+        with:
+          instance_name: ${{ vars.GCP_INSTANCE_NAME }}
+          zone: ${{ vars.GCP_INSTANCE_ZONE }}
+          ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          command: |
+            cat /home/jerryhanksokafor/.env
+            sudo docker ps
+
       # # sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
       # # Example of using the output
       # - name: Show result of SSH int Vm

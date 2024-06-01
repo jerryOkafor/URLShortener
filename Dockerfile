@@ -2,7 +2,7 @@
 # Version: 1.0
 
 # FROM - Image to start building on.
-FROM python:3.12-slim
+FROM python:3.12.2-slim
 
 
 # PROJECT SETUP
