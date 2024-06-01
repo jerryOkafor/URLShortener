@@ -22,9 +22,9 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE_NAME_STAGING: jerryokafor/url-shortener
+      DOCKER_IMAGE_NAME_STAGING: url-shortener
       DOCKER_CONTAINER_NAME_STAGING: url-shortener-staging
-      DOCKER_IMAGE_NAME: jerryokafor/url-shortener
+      DOCKER_IMAGE_NAME: url-shortener
       DOCKER_CONTAINER_NAME: url-shortner
 
     steps:
