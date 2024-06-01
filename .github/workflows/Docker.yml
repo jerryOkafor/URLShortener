@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_IMAGE_NAME_STAGING: jerryokafor/url-shortener
-      DOCKER_CONTAINER_NAME_STAGING: url-shortner-staging
+      DOCKER_CONTAINER_NAME_STAGING: url-shortener-staging
       DOCKER_IMAGE_NAME: jerryokafor/url-shortener
       DOCKER_CONTAINER_NAME: url-shortner
 
@@ -73,9 +73,9 @@ jobs:
 
       - name: Build docker-compose.yml
         run: |
-          sed "s/DOCKER_IMAGE_NAME_STAGING/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
-          sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKERHUB_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
-          sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
+          sed "s/DOCKER_IMAGE_NAME_STAGING/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME_STAGING}}/g" docker-compose-template.yml > docker-compose.yml
+          sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_USERNAME}}/g" docker-compose.yml
+          sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
 
       - name: Compose and copy .env file
