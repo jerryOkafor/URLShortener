@@ -82,7 +82,7 @@ jobs:
 
       - name: Compose and copy .env file
         run: |
-          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:/home/jerryhanksokafor --zone "us-central1-a" --project "urls-4b"
+          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/url-shortener --zone "us-central1-a" --project "urls-4b"
 
       - name: SSH into VM
         id: compute-ssh
