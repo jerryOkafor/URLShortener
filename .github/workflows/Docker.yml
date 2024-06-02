@@ -96,9 +96,9 @@ jobs:
             sudo docker ps
 
       # # sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
-      # # Example of using the output
-      # - name: Show result of SSH int Vm
-      #   id: test
-      #   run: |-
-      #     echo '${{ steps.compute-ssh.outputs.stdout }}'
-      #     echo '${{ steps.compute-ssh.outputs.stderr }}'
+      # Example of using the output
+      - name: Show result of SSH int Vm
+        id: test
+        run: |-
+          echo '${{ steps.compute-ssh.outputs.stdout }}'
+          echo '${{ steps.compute-ssh.outputs.stderr }}'
