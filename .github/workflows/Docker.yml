@@ -92,13 +92,8 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
-            cat /home/jerryhanksokafor/.env
-            sudo docker ps
+            docker-compose -f /home/jerryhanksokafor/docker-compose.yml --profile staging down
+            docker-compose -f /home/jerryhanksokafor/docker-compose.yml --profile staging build --pull
+            docker-compose -f /home/jerryhanksokafor/docker-compose.yml --profile staging up -d
 
-      # # sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
-      # Example of using the output
-      - name: Show result of SSH int Vm
-        id: test
-        run: |-
-          echo '${{ steps.compute-ssh.outputs.stdout }}'
-          echo '${{ steps.compute-ssh.outputs.stderr }}'
+            docker image prune -f
