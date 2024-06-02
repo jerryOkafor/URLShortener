@@ -39,7 +39,7 @@ X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
 ###
 # @name: List all genrerated urls
-GET http://localhost:8000/api/v1/url HTTP/1.1
+GET http://35.208.210.164:8000/api/v1/url HTTP/1.1
 Accept: application/json
 X-Api-Key: 9mzegA8S.fwwakSHeZyrL50IfYd2TNEjHLTwjX7l5
 
