@@ -162,6 +162,7 @@ cython_debug/
 /urls-4b-service-account.json
 /cache/
 /prod.env
+/web/prod.env
 /.idea/httpRequests/*
 /.idea/copilot/*
 .idea/workspace.xml

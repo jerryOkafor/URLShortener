@@ -13,6 +13,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
   release:
     types: [published]
   workflow_dispatch:
@@ -30,6 +31,13 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
+
+      - name: Decrypt large secret
+        shell: bash
+        run: |
+          ./scripts/decrypt_secret_api.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -77,12 +85,11 @@ jobs:
           sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
+          cat docker-compose.yml
 
       - name: Compose and copy .env file
         run: |
-          echo "APP_API_BASE_URL=${{secrets.APP_API_BASE_URL}}" >> .env
-          cat .env
-          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/
+          gcloud compute scp docker-compose.yml jerryhanksokafor@${{vars.GCP_INSTANCE_NAME}}:"/home/jerryhanksokafor/url-shortener/docker-compose.yml" --zone "us-central1-a" --project "urls-4b"
 
       - name: SSH into VM
         id: compute-ssh
@@ -92,13 +99,8 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
-            cat /home/jerryhanksokafor/.env
-            sudo docker ps
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging down
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging build --pull
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging up -d
 
-      # # sudo docker run --name url-shortener --env-file /home/jerryhanksokafor/.env -p 8000:8000 jerryokafor/url-shortener
-      # # Example of using the output
-      # - name: Show result of SSH int Vm
-      #   id: test
-      #   run: |-
-      #     echo '${{ steps.compute-ssh.outputs.stdout }}'
-      #     echo '${{ steps.compute-ssh.outputs.stderr }}'
+            sudo docker image prune -f
