@@ -92,8 +92,8 @@ jobs:
           zone: ${{ vars.GCP_INSTANCE_ZONE }}
           ssh_private_key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
           command: |
-            docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging down
-            docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging build --pull
-            docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging up -d
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging down
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging build --pull
+            sudo docker-compose -f /home/jerryhanksokafor/url-shortener/docker-compose.yml --profile staging up -d
 
-            docker image prune -f
+            sudo docker image prune -f
