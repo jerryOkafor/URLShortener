@@ -1,23 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/app/components/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import { Header } from "./components";
 
 export const metadata: Metadata = {
-  title: "URL Shortener",
-  description: "Generate a short url for your long url with ease!!",
+  title: "Next.js on Firebase App Hosting",
+  description: "",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full bg-white">
-      <ThemeProvider>
-        <body className="${inter.className} h-full">{children}</body>
-      </ThemeProvider>
+    <html lang="en" className="dark-theme">
+      <head>
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <div className="dots" />
+        <Header />
+        {children}
+        <div className="bottom-gradient" />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "urls-4b",
+    "url-shortener-staging": "urls-4b"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
