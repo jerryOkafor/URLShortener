@@ -78,10 +78,11 @@ jobs:
           sed -i "s/DOCKER_IMAGE_NAME/${{secrets.DOCKER_USERNAME}}\/${{env.DOCKER_IMAGE_NAME}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME_STAGING/${{env.DOCKER_CONTAINER_NAME_STAGING}}/g" docker-compose.yml
           sed -i "s/DOCKER_CONTAINER_NAME/${{env.DOCKER_CONTAINER_NAME}}/g" docker-compose.yml
+          cat docker-compose.yml
 
       - name: Compose and copy .env file
         run: |
-          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/url-shortener --zone=us-central1-a
+          gcloud compute scp docker-compose.yml ${{vars.GCP_INSTANCE_NAME}}:~/url-shortener --region=us-central1-a
 
       - name: SSH into VM
         id: compute-ssh
