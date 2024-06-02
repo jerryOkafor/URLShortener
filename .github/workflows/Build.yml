@@ -49,6 +49,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Decrypt large secret
+        shell: bash
+        run: |
+          ./scripts/decrypt_secret.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -70,18 +77,19 @@ jobs:
           echo NEXT_PUBLIC_MEASUREMENT_ID=${{ vars.WEB_MEASUREMENT_ID }} >> .env.local
           echo NEXT_PUBLIC_APP_API_BASE_URL=${{ secrets.APP_API_BASE_URL }} >> .env.local
           echo NEXT_PUBLIC_APP_API_KEY=${{ secrets.APP_API_KEY }} >> .env.local
+          cat .env.local
           npm run build
 
-      - name: Deploy
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: ${{ secrets.WEB_PROJECT_ID }}
-          entryPoint: ./web
-          channelId: live
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
+      # - name: Deploy
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: ${{ secrets.GITHUB_TOKEN }}
+      #     firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      #     projectId: ${{ secrets.WEB_PROJECT_ID }}
+      #     entryPoint: ./web
+      #     channelId: live
+      #   env:
+      #     FIREBASE_CLI_EXPERIMENTS: webframeworks
 
   build-api:
     name: Build API
@@ -92,6 +100,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Decrypt large secret
+        shell: bash
+        run: |
+          ./scripts/decrypt_secret.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
