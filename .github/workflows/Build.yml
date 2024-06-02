@@ -70,16 +70,16 @@ jobs:
           cat .env.local
           npm run build
 
-      # - name: Deploy
-      #   uses: FirebaseExtended/action-hosting-deploy@v0
-      #   with:
-      #     repoToken: ${{ secrets.GITHUB_TOKEN }}
-      #     firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      #     projectId: ${{ secrets.WEB_PROJECT_ID }}
-      #     entryPoint: ./web
-      #     channelId: live
-      #   env:
-      #     FIREBASE_CLI_EXPERIMENTS: webframeworks
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ secrets.WEB_PROJECT_ID }}
+          entryPoint: ./web
+          channelId: live
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
 
   build-api:
     name: Build API
