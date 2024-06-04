@@ -12,7 +12,7 @@ import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { Button } from "@material-tailwind/react";
 import { Tooltip } from "@/app/components/providers";
 import { useCopyToClipboard } from "usehooks-ts";
-import SpinnerLoading from "../links/spinnerLoading";
+import SpinnerLoading from "../components/spinnerLoading";
 
 export default function Links() {
   const [data, setData] = useState<[ShortLink] | null>(null);
@@ -29,7 +29,7 @@ export default function Links() {
       });
   }, []);
 
-  if (isLoading) return SpinnerLoading;
+  if (isLoading) return <SpinnerLoading />;
 
   return (
     <>

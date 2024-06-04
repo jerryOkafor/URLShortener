@@ -17,9 +17,9 @@ export default function Header({ loading }: HeadeProp = { loading: false }) {
 
   useEffect(() => {
     if (!isLoading && !session.isLoggedIn && pathName !== "/signup") {
-      router.replace("/signin");
+      // router.replace("/signin");
     }
-  }, [isLoading, session.isLoggedIn, router, pathName]);
+  }, [router, pathName, isLoading, session.isLoggedIn]);
 
   return (
     <>
